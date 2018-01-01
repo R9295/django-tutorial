@@ -1,0 +1,21 @@
+{% extends 'asd/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div align="right"><a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></div>    
+{% endif %}
+
+<div class="content container" >
+        <div class="col-md-12 post" align="center">
+            <div class="date" align="right">
+                <p>published: {{ post.published_date }}</p>
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}" style="color:orange;">{{ post.title }}</a></h1>
+            <br/ ><br />
+          <div align="left">
+          <p style="font-size:20px;">{{ post.text|linebreaksbr }}</p>
+          </div>
+          </div>
+
+        </div>
+{% endblock %}
